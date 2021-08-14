@@ -1,7 +1,6 @@
 const express = require("express");
 const body = require("body-parser");
 const cors = require("cors");
-// const controller = require("../controller.js")
 const routes = require("./routes");
 const mongoose = require("mongoose");
 const Card = require("./schema");
@@ -40,3 +39,4 @@ app.use((req, res, next) => {
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`);
 });
+
