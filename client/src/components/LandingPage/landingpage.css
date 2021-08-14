@@ -104,8 +104,8 @@
     align-items: center;
 }
 .card {
-    width: 10.5rem;
-    height: 10.5rem;
+    width: 11.5rem;
+    height: 11.5rem;
     background-color: white;
     margin: 1rem;
     box-shadow: 0px 13px 19px rgba(0, 0, 0, 0.07);
@@ -117,14 +117,43 @@
 }
 .blue3 {
     background: #23a6f0;
+    color: white;
 }
 
 .cardbox {
-    height: 4rem;
-    width: 3.5rem;
+    height: 3.6rem;
+    width: 3.2rem;
     border-radius: 6px;
     background: #23a6f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-bottom: 1rem;
 }
+.cardbox3 {
+    height: 3.6rem;
+    width: 3.2rem;
+    border-radius: 6px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #23a6f0;
+    margin-bottom: 1rem;
+}
+
 .cardtitle {
     font-size: small;
+}
+.cardline {
+    width: 2.5rem;
+    height: 2px;
+    background: #e74040;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.carddescrip {
+    font-weight: 500;
+    font-size: x-small;
 }
