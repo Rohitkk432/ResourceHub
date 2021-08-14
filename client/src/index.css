@@ -6,6 +6,10 @@ body {
     font-weight: 700;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    --blue: #23A6F0;
+    --white: #FFFFFF;
+    --black: #000000;
+    --background: #E8F1FF;
 }
 
 code {
