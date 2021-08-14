@@ -1,0 +1,28 @@
+.nav {
+    width: 100vw;
+    height: 3.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* background: pink; */
+}
+.navAppName {
+    padding-left: 10vw;
+    font-size: x-large;
+    width: 50vw;
+    height: 3.5rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    /* background:#23A6F0; */
+}
+
+.navlinks {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 50vw;
+    height: 3.5rem;
+}
