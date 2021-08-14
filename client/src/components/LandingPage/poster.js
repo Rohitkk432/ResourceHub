@@ -7,6 +7,10 @@ import Posterimg from '../img/none.png';
 import {Button} from '@material-ui/core';
 import { createTheme, withStyles, ThemeProvider } from '@material-ui/core/styles';
 
+import CreditCardIcon from '@material-ui/icons/CreditCard';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import PhotoLibraryOutlinedIcon from '@material-ui/icons/PhotoLibraryOutlined';
+
 function Poster() {
 
     //Material Ui styling
@@ -61,13 +65,35 @@ function Poster() {
             </div>
             <div className="cards">
                 <div className="card">
-                    <div className="cardbox"></div>
+                    <div className="cardbox">
+                        <CreditCardIcon/>
+                    </div>
                     <div className="cardtitle">Organized Content</div>
                     <div className="cardline"></div>
-                    <div className="carddescrip"></div>
+                    <div className="carddescrip">
+                        Have all your resources listed at one place, making it accessible for future reference.
+                    </div>
                 </div>
-                <div className="card"></div>
-                <div className="card blue3"></div>
+                <div className="card">
+                    <div className="cardbox">
+                        <FavoriteIcon/>
+                    </div>
+                    <div className="cardtitle">Shareable</div>
+                    <div className="cardline"></div>
+                    <div className="carddescrip">
+                        Easily share you collections with your friends and acquaintances.
+                    </div>
+                </div>
+                <div className="card blue3">
+                    <div className="cardbox3">
+                        <PhotoLibraryOutlinedIcon/>
+                    </div>
+                    <div className="cardtitle">Resource Library</div>
+                    <div className="cardline"></div>
+                    <div className="carddescrip">
+                        Searching for the right content? We got you covered. Find the resources as per your needs curated by people around the globe.
+                    </div>
+                </div>
             </div>
         </div>
     )
