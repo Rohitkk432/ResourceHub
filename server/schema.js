@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const cardSchema = new Schema({
-  // _id: { type: String, required: true },
   userID: { type: String, required: true },
   title: { type: String, required: true },
   description: { type: String, required: false },
