@@ -3,10 +3,11 @@ const body = require("body-parser");
 const cors = require("cors");
 const routes = require("./routes");
 const mongoose = require("mongoose");
-const Card = require("./schema");
+const Card = require("./models/cards");
 const app = express();
 const port = 8000;
-
+app.use(body.urlencoded({extended: true}));
+app.use(body.json());
 const connect = async () => {
   try {
     await mongoose.connect(
@@ -24,6 +25,7 @@ const connect = async () => {
 };
 connect();
 app.use( '/', routes);
+app.use(body.json)
 
 app.use((req, res, next) => {
   res.set("Access-Control-Allow-Origin", "*");
