@@ -1,8 +1,13 @@
 import React from 'react'
 import './consolepage.css'
 
+//components
+// import Datatype2 from './datatype2';
+// import Datatype1 from './datatype1';
+
+
 //Material UI
-import {Button} from '@material-ui/core';
+import {Button,TextField} from '@material-ui/core';
 import { createTheme, withStyles, ThemeProvider } from '@material-ui/core/styles';
 
 function Consolepage() {
@@ -36,6 +41,15 @@ function Consolepage() {
                     </ThemeProvider>
                 </div>
                 <div className="youtcollection">YOUR COLLECTION</div>
+                <div className="searchbar">
+                    <TextField
+                    fullWidth margin="normal"
+                    color="primary" id="search" label="Search Resources"
+                    variant="outlined" 
+                    />
+                </div>
+            </div>
+            <div className="bottomsection">
             </div>
         </div>
     )
