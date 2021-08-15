@@ -24,10 +24,9 @@
 }
 
 .topsection {
-    position: absolute;
+    /* position: absolute; */
     height: 35vh;
     width: 100vw;
-    background-color: blanchedalmond;
 }
 
 .welcomecard {
@@ -55,5 +54,21 @@
 .youtcollection {
     position: relative;
     left: 70vw;
-    top: 40%;
+    top: 27%;
+    width: 20rem;
+    font-size: x-large;
+    word-spacing: 0.5rem;
+    text-decoration: underline #23a6f0 5px;
+}
+.searchbar {
+    width: 50vw;
+    position: relative;
+    left: 25vw;
+    top: -7rem;
+}
+
+.bottomsection {
+    /* position: absolute; */
+    height: 65vh;
+    width: 100vw;
 }

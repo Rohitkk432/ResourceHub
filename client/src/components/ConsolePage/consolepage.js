@@ -1,60 +1,58 @@
-import React from "react";
-import "./consolepage.css";
+import React from 'react'
+import './consolepage.css'
+
+//components
+// import Datatype2 from './datatype2';
+// import Datatype1 from './datatype1';
+
 
 //Material UI
-import { Button } from "@material-ui/core";
-import {
-  createTheme,
-  withStyles,
-  ThemeProvider,
-} from "@material-ui/core/styles";
-import Card6 from "../Components/Card6";
+import {Button,TextField} from '@material-ui/core';
+import { createTheme, withStyles, ThemeProvider } from '@material-ui/core/styles';
+
 function Consolepage() {
-  //Material Ui styling
-  const theme = createTheme({
-    palette: {
-      primary: {
-        main: "#000000",
-      },
-    },
-  });
-  const LogoutButton = withStyles((theme) => ({
-    root: {
-      color: "#032D23",
-    },
-  }))(Button);
 
-  return (
-    <div className="console">
-      <div className="overlay">
-        <div className="overlaycomponent"></div>
-      </div>
-      <div className="topsection">
-        <div className="welcomecard">
-          <div className="welcomemessage">Welcome!</div>
-          <div className="welsomename">USERABCD</div>
-          <ThemeProvider theme={theme}>
-            <LogoutButton variant="outlined" color="primary">
-              Logout
-            </LogoutButton>
-          </ThemeProvider>
+    //Material Ui styling
+    const theme = createTheme({
+        palette: {
+            primary: {
+                main: "#000000",
+            },
+        },
+    });
+    const LogoutButton = withStyles((theme) => ({
+        root: {
+            color: '#032D23',
+        },
+    }))
+    (Button)
+
+    return (
+        <div className='console'>
+            <div className="overlay">
+                <div className="overlaycomponent"></div>
+            </div>
+            <div className="topsection">
+                <div className="welcomecard">
+                    <div className="welcomemessage">Welcome!</div>
+                    <div className="welsomename">USERABCD</div>
+                    <ThemeProvider theme={theme}>
+                        <LogoutButton variant="outlined" color="primary">Logout</LogoutButton>
+                    </ThemeProvider>
+                </div>
+                <div className="youtcollection">YOUR COLLECTION</div>
+                <div className="searchbar">
+                    <TextField
+                    fullWidth margin="normal"
+                    color="primary" id="search" label="Search Resources"
+                    variant="outlined" 
+                    />
+                </div>
+            </div>
+            <div className="bottomsection">
+            </div>
         </div>
-        <div className="youtcollection">YOUR COLLECTION</div>
-        <Card6
-          link="http://example.net/"
-          title="Lorem ipsum dolor sit amet"
-          description="Nick Bedford"
-          image="http://example.net"
-        />
-                <Card6
-          link="http://example2.net/"
-          title="Lorem ipsum dolor sit amet2"
-          description="Nick Bedford2"
-        />
-
-      </div>
-    </div>
-  );
+    )
 }
 
-export default Consolepage;
+export default  Consolepage;

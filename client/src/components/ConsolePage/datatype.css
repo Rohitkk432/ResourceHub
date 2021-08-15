@@ -1,0 +1,134 @@
+/* datatype1 */
+
+.datatype1 {
+    background: rgba(242, 246, 249, 0.7);
+    width: 28rem;
+    min-height: 10rem;
+    border-radius: 20px;
+    box-shadow: 0px 4px 33px rgba(147, 195, 232, 0.7);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+}
+.cardimage {
+    background: #23a6f0;
+    height: 8rem;
+    width: 8.5rem;
+    margin: 1rem;
+    border-radius: 20px;
+}
+.carditems {
+    margin: 1rem;
+    margin-left: 0rem;
+    width: 16.5rem;
+    height: 8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+.cardtitle {
+    font-size: large;
+    font-weight: 500;
+}
+.iteminfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.infolinks {
+    font-size: small;
+    font-weight: 300;
+    color: #737373;
+}
+.buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+.expandbtn {
+    width: 5rem;
+    border-radius: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #23a6f0;
+    border-color: #23a6f0;
+    margin: 6px;
+}
+.editbtn {
+    width: 5rem;
+    border-radius: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background: #23a6f0;
+    color: white;
+    border-color: #23a6f0;
+    margin: 6px;
+}
+
+/* datatype2 */
+
+.datatype2 {
+    background: rgba(242, 246, 249, 0.7);
+    width: 25rem;
+    min-height: 9rem;
+    border-radius: 20px;
+    box-shadow: 0px 4px 33px rgba(147, 195, 232, 0.7);
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.cardtitle2 {
+    font-size: large;
+    font-weight: 700;
+}
+
+.itemcard {
+    width: 100%;
+    height: 4rem;
+    margin-top: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.itemcardimg {
+    border-radius: 10px;
+    margin: 0.25rem;
+    height: 3.5rem;
+    width: 4rem;
+    background: #23a6f0;
+}
+.itemcardinfo {
+    height: 3.5rem;
+    width: 19rem;
+    margin: 0.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.itemcardlink {
+    font-size: medium;
+    font-weight: 300;
+    color: #737373;
+}
+.buttons2 {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
