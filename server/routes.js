@@ -65,12 +65,8 @@ router.get('/findbyEmail/:email',async (req,res)=>{
 router.post('/createAccount',async(req,res)=>{
   try{
     const newEntry= new users();
-    newEntry.name = req.body.name;
     newEntry.email  = req.body.email;
-    newEntry.socials.instagram = req.body.socials.instagram;
-    newEntry.socials.facebook = req.body.socials.facebook;
-    newEntry.socials.linkedin = req.body.socials.linkedin;
-    newEntry.socials.github = req.body.socials.github
+   
     newEntry.save();
     res.send(newEntry)
   }
@@ -81,6 +77,29 @@ router.post('/createAccount',async(req,res)=>{
   }
 })
 
+
+router.post('/updateAccount/', async(req,res)=>{
+  try{
+    
+     result = await users.findOneAndUpdate({email:req.body.email}, {name : req.body.name,
+      
+      socials:
+          {
+             instagram: req.body.socials.instagram,
+             facbook: req.body.socials.facebook,
+             linkedin: req.body.socials.linkedin,
+             github: req.body.socials.linkedin      
+          } 
+    
+    });
+     res.send(result) // the  result does not show the updated document because by default the function findOneAnd Update returns the document as it was before update
+
+    }    
+  
+  catch(e){
+    console.log(e)
+  }
+})
 
     
 
