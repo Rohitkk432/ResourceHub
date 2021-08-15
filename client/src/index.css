@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;&display=swap");
 
 body {
     margin: 0;
@@ -6,12 +6,11 @@ body {
     font-weight: 700;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    --blue: #23A6F0;
-    --white: #FFFFFF;
+    --blue: #23a6f0;
+    --white: #ffffff;
     --black: #000000;
-    --background: #E8F1FF;
+    --background: #e8f1ff;
     --secondary-text: #737373;
-
 }
 
 code {
