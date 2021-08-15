@@ -86,13 +86,13 @@ router.post('/updateAccount/', async(req,res)=>{
       socials:
           {
              instagram: req.body.socials.instagram,
-             facbook: req.body.socials.facebook,
+             facebook: req.body.socials.facebook,
              linkedin: req.body.socials.linkedin,
-             github: req.body.socials.linkedin      
+             github: req.body.socials.github ,     
           } 
     
     });
-     res.send(result) // the  result does not show the updated document because by default the function findOneAnd Update returns the document as it was before update
+     res.send('successful') // the  result does not show the updated document because by default the function findOneAnd Update returns the document as it was before update
 
     }    
   
