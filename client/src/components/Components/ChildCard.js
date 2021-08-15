@@ -7,9 +7,9 @@ const ChildCard = (props) => {
       <div className="image">
         <img src={props.image} alt={`From ${props.image}`}></img>
       </div>
-      <div>
-        <div className="Black-text line">{props.title}</div>
-        <div className="URL text-bottom line"> {props.link} </div>
+      <div className="text">
+        <div className="Black-text">{props.title}</div>
+        <div className="URL"> {props.link} </div>
       </div>
     </div>
   );

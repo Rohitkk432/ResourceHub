@@ -1,0 +1,19 @@
+.Button{
+    margin: 5px;
+    border-radius: 25px;
+    /* height: 2.5rem;  */
+    padding: 0.5rem;
+    border: 2px solid #23A6F0;
+    display: flex;
+    align-items: center;
+}
+
+.Primary{
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+.Secondary{
+    background-color: var(--white);
+    color: var(--blue);
+}
