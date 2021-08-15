@@ -1,11 +1,18 @@
 import React from "react";
 import "./loginpage.css";
 import Design from "./Group 39.svg";
-// import sawoLogin from "./sawoLogin.js";
+import {useHistory} from 'react-router-dom';
 import { useEffect } from "react";
 import Sawo from "sawo";
 
+import axios from 'axios';
+
+var currentuser;
+
 function Loginpage() {
+
+  let history = useHistory();
+
   var config = {
     // should be same as the id of the container created on 3rd step
     containerID: "sawo-container",
@@ -14,10 +21,40 @@ function Loginpage() {
     // Add the API key copied from 2nd step
     apiKey: "5ad9aff4-30d1-4ff6-8d76-1a44b5ac71a5",
     // Add a callback here to handle the payload sent by sdk
-    onSuccess: (payload) => {
-      console.log(payload);
+    onSuccess: async(payload) => {
+      await logger(payload.identifier);
+      history.push('/console');
     },
   };
+
+  async function logger(email){
+
+    const user= await axios.get(`http://localhost:8000/findbyEmail/${email}`)
+    .then((res)=>{
+      console.log(res.data);
+      return res.data;
+    })
+    .catch(function (err) {
+      console.log(err);
+    })
+
+    if(user){
+      currentuser=user;
+    }
+    else{
+      console.log(email);
+      currentuser = axios.post('http://localhost:8000/createAccount', {
+        email: `${email}`,
+      })
+      .then((res)=>{
+        console.log(res.data);
+        return res.data;
+      })
+      .catch((err)=>{
+        console.log(err);
+      });
+    }
+  }
 
   useEffect(() => {
     let sawo = new Sawo(config);
@@ -47,5 +84,5 @@ function Loginpage() {
     </div>
   );
 }
-
+export {currentuser};
 export default Loginpage;

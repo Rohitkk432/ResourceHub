@@ -4,6 +4,7 @@ import './consolepage.css'
 //components
 // import Datatype2 from './datatype2';
 // import Datatype1 from './datatype1';
+// import Imageuploader from '../utils/imageuploader';
 
 
 //Material UI

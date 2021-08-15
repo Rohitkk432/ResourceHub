@@ -50,11 +50,8 @@ router.post('/createItemPost', async (req,res)=>{
 router.get('/findbyEmail/:email',async (req,res)=>{
 
   try{
-
-      const found = await users.findOne({email: req.params.email})
-      res.send(found)
-
-
+      const found = await users.findOne({email: req.params.email});
+      res.send(found);
   }
   catch(e){
     console.log(e)
@@ -65,12 +62,12 @@ router.get('/findbyEmail/:email',async (req,res)=>{
 router.post('/createAccount',async(req,res)=>{
   try{
     const newEntry= new users();
-    newEntry.name = req.body.name;
+    // newEntry.name = req.body.name;
     newEntry.email  = req.body.email;
-    newEntry.socials.instagram = req.body.socials.instagram;
-    newEntry.socials.facebook = req.body.socials.facebook;
-    newEntry.socials.linkedin = req.body.socials.linkedin;
-    newEntry.socials.github = req.body.socials.github
+    // newEntry.socials.instagram = req.body.socials.instagram;
+    // newEntry.socials.facebook = req.body.socials.facebook;
+    // newEntry.socials.linkedin = req.body.socials.linkedin;
+    // newEntry.socials.github = req.body.socials.github
     newEntry.save();
     res.send(newEntry)
   }
