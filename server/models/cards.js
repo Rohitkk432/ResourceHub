@@ -4,7 +4,8 @@ const { Schema } = mongoose;
 const cardSchema = new Schema({
   userID: { type: String, required: true },
   title: { type: String, required: true },
-  description: { type: String, required: false },  
+  description: { type: String, required: false }, 
+  image: { type: String, required: false } 
 });
 
 module.exports = mongoose.model('data', cardSchema, 'data');

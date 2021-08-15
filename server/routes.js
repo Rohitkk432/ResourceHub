@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 const card = require("./models/cards");
 const item = require('./models/items');
+const users = require("./models/users");
 
 router.get("/data", async (req, res) => {
   try {
@@ -45,6 +46,44 @@ router.post('/createItemPost', async (req,res)=>{
   }
 
 })
+
+router.get('/findbyEmail/:email',async (req,res)=>{
+
+  try{
+
+      const found = await users.findOne({email: req.params.email})
+      res.send(found)
+
+
+  }
+  catch(e){
+    console.log(e)
+  }
+
+})
+
+router.post('/createAccount',async(req,res)=>{
+  try{
+    const newEntry= new users();
+    newEntry.name = req.body.name;
+    newEntry.email  = req.body.email;
+    newEntry.socials.instagram = req.body.socials.instagram;
+    newEntry.socials.facebook = req.body.socials.facebook;
+    newEntry.socials.linkedin = req.body.socials.linkedin;
+    newEntry.socials.github = req.body.socials.github
+    newEntry.save();
+    res.send(newEntry)
+  }
+
+  
+  catch(e){
+    console.log(e)
+  }
+})
+
+
+    
+
 
 
 
