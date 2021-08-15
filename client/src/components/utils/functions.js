@@ -9,8 +9,9 @@ async function getallcards(){
 
 //get user collections
 async function getusercards(userID){
-    const resp = await axios.get(`http://localhost:8000/userdata/${userID}`)
+    const resp = await axios.get(`http://localhost:8000/userdata?userid=${userID}`)
     .then((res)=>{return res.data}).catch((err)=>console.log(err));
+    console.log(resp);
     return resp;
 }
 
@@ -22,10 +23,11 @@ async function getcarditems(dataID){
 }
 
 //creating card
-async function createcard(userID,title,description=``,cardtemplate){
+async function createcard(userID,title,description=``,image=``,cardtemplate){
     const resp = await axios.post(`http://localhost:8000/createPost`,{
         userID:`${userID}`,
         title:`${title}`,
+        image:`${image}`,
         description:`${description}`,
         cardtemplate:`${cardtemplate}`
     })

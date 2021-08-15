@@ -16,9 +16,9 @@ router.get("/data", async (req, res) => {
 });
 
 //finding cards using userID
-router.get("/userdata/:userID", async (req, res) => {
+router.get("/userdata", async (req, res) => {
   try {
-    const usercards = await card.find({dataID:req.params.userID});
+    const usercards = await card.find({dataID:req.params.userid});
     res.send(usercards);
   } catch (err) {
     console.error(err.message);
@@ -26,9 +26,9 @@ router.get("/userdata/:userID", async (req, res) => {
 });
 
 //finding items using cardId
-router.get("/carditems/:dataID", async (req, res) => {
+router.get("/carditems/:dataid", async (req, res) => {
   try {
-    const carditems = await item.find({dataID:req.params.dataID});
+    const carditems = await item.find({dataID:req.params.dataid});
     res.send(carditems);
   } catch (err) {
     console.error(err.message);
@@ -38,11 +38,12 @@ router.get("/carditems/:dataID", async (req, res) => {
 //creating card
 router.post('/createPost', async (req,res)=>{
   try{
-    const {userID,title,description,cardtemplate}=req.body;
+    const {userID,title,description,image,cardtemplate}=req.body;
     const newEntry = new card();
     newEntry.userID = userID;
     newEntry.title = title;
     newEntry.description = description;
+    newEntry.image = image;
     newEntry.cardtemplate= cardtemplate;
     newEntry.save();
     res.send(newEntry);

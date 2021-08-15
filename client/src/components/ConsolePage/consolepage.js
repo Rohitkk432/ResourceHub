@@ -5,6 +5,7 @@ import './consolepage.css'
 // import Datatype2 from './datatype2';
 // import Datatype1 from './datatype1';
 // import Imageuploader from '../utils/imageuploader';
+import Cardsdisplay from './cardsdisplay';
 
 
 //Material UI
@@ -51,6 +52,7 @@ function Consolepage() {
                 </div>
             </div>
             <div className="bottomsection">
+                <Cardsdisplay/>
             </div>
         </div>
     )
