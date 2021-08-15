@@ -4,6 +4,8 @@ const card = require("./models/cards");
 const item = require('./models/items');
 const users = require("./models/users");
 
+
+//finding all cards
 router.get("/data", async (req, res) => {
   try {
     const cards = await card.find({});
@@ -13,14 +15,35 @@ router.get("/data", async (req, res) => {
   }
 });
 
+//finding cards using userID
+router.get("/userdata/:userID", async (req, res) => {
+  try {
+    const usercards = await card.find({dataID:req.params.userID});
+    res.send(usercards);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
 
+//finding items using cardId
+router.get("/carditems/:dataID", async (req, res) => {
+  try {
+    const carditems = await item.find({dataID:req.params.dataID});
+    res.send(carditems);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+//creating card
 router.post('/createPost', async (req,res)=>{
   try{
-    const {userID,title,description}=req.body;
+    const {userID,title,description,cardtemplate}=req.body;
     const newEntry = new card();
     newEntry.userID = userID;
     newEntry.title = title;
     newEntry.description = description;
+    newEntry.cardtemplate= cardtemplate;
     newEntry.save();
     res.send(newEntry);
   }
@@ -29,6 +52,7 @@ router.post('/createPost', async (req,res)=>{
   }
 })
 
+//creating items within a card
 router.post('/createItemPost', async (req,res)=>{
   try{
     const {title,description,image,link,dataID}=req.body;
@@ -47,8 +71,8 @@ router.post('/createItemPost', async (req,res)=>{
 
 })
 
+//find by email in database
 router.get('/findbyEmail/:email',async (req,res)=>{
-
   try{
       const found = await users.findOne({email: req.params.email});
       res.send(found);
@@ -59,6 +83,7 @@ router.get('/findbyEmail/:email',async (req,res)=>{
 
 })
 
+//create user with email 
 router.post('/createAccount',async(req,res)=>{
   try{
     const newEntry= new users();
@@ -66,17 +91,14 @@ router.post('/createAccount',async(req,res)=>{
     newEntry.save();
     res.send(newEntry)
   }
-
-  
   catch(e){
     console.log(e)
   }
 })
 
-
+//updating account info
 router.post('/updateAccount/', async(req,res)=>{
   try{
-    
     result = await users.findOneAndUpdate({email:req.body.email}, 
       {
         name : req.body.name,
@@ -90,18 +112,11 @@ router.post('/updateAccount/', async(req,res)=>{
       }
     );
      res.send('successful') // the  result does not show the updated document because by default the function findOneAnd Update returns the document as it was before update
-
     }    
-  
   catch(e){
     console.log(e)
   }
 })
-
-    
-
-
-
 
 
 module.exports = router;
