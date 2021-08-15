@@ -1,6 +1,6 @@
 import React from 'react'
 import './consolepage.css'
-import Card5 from '../Components/Card5';
+import Card4 from '../Components/Card4';
 //components
 // import Datatype2 from './datatype2';
 // import Datatype1 from './datatype1';
@@ -51,7 +51,7 @@ function Consolepage() {
                 </div>
             </div>
             <div className="bottomsection">
-                <Card5 heading="Javascript 101"></Card5>
+                <Card4 heading="Javascript 101"></Card4>
             </div>
         </div>
     )
