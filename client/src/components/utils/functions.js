@@ -11,7 +11,6 @@ async function getallcards(){
 async function getusercards(userID){
     const resp = await axios.get(`http://localhost:8000/userdata?userid=${userID}`)
     .then((res)=>{return res.data}).catch((err)=>console.log(err));
-    console.log(resp);
     return resp;
 }
 

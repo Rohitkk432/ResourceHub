@@ -1,18 +1,16 @@
 import {React,useEffect,useState} from 'react';
 import {currentuser} from '../LoginPage/loginpage'
-import {getusercards,getcarditems} from '../utils/functions';
+import {getusercards} from '../utils/functions';
+
+import Datatype1 from './datatype1';
+import Datatype2 from './datatype2';
 
 function Cardsdisplay() {
 
-    const [cards,setCards]=useState([])
+    const [cards,setCards]=useState([]);
 
     async function fetchingcards(){
-        console.log(currentuser._id);
         const _cards = await getusercards(currentuser._id);
-        await _cards.map(async(card)=>{
-            card.items = await getcarditems(card._id); 
-        })
-        console.log(_cards);
         setCards(_cards);
     }
 
@@ -20,12 +18,33 @@ function Cardsdisplay() {
         if(currentuser){
             fetchingcards();
         }
-        // console.log(currentuser._id);
     },[])
 
     return (
-        <div>
-            
+        <div className='cardsdisplay' >
+            {   
+                cards?.map((_data,idx)=>{
+                    if(_data.cardtemplate==='1'){
+                        return(
+                            <div key={idx}>
+                                <Datatype1 data={_data.title} dataid={_data._id}/>
+                            </div>
+                        )
+                    }
+                    else if(_data.cardtemplate==='2'){
+                        return(
+                            <div key={idx}>
+                                <Datatype2 data={_data.title} dataid={_data._id}/>
+                            </div>
+                        )
+                    }
+                    else{
+                        return(
+                            <div key={idx}></div>
+                        )
+                    }
+                })
+            }
         </div>
     )
 }

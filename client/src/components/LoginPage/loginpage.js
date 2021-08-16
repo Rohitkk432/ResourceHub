@@ -31,7 +31,6 @@ function Loginpage() {
 
     const user= await axios.get(`http://localhost:8000/findbyEmail/${email}`)
     .then((res)=>{
-      console.log(res.data);
       return res.data;
     })
     .catch(function (err) {
@@ -42,12 +41,10 @@ function Loginpage() {
       currentuser=user;
     }
     else{
-      console.log(email);
       currentuser = axios.post('http://localhost:8000/createAccount', {
         email: `${email}`,
       })
       .then((res)=>{
-        console.log(res.data);
         return res.data;
       })
       .catch((err)=>{

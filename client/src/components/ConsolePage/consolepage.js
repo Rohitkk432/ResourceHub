@@ -1,18 +1,17 @@
-import React from 'react'
+import {React,useState} from 'react'
 import './consolepage.css'
 
 //components
-// import Datatype2 from './datatype2';
-// import Datatype1 from './datatype1';
-// import Imageuploader from '../utils/imageuploader';
 import Cardsdisplay from './cardsdisplay';
-
+import Templatechoice from './templatechoice';
 
 //Material UI
 import {Button,TextField} from '@material-ui/core';
 import { createTheme, withStyles, ThemeProvider } from '@material-ui/core/styles';
 
 function Consolepage() {
+
+    const [create,setCreate]=useState(false);
 
     //Material Ui styling
     const theme = createTheme({
@@ -51,8 +50,14 @@ function Consolepage() {
                     />
                 </div>
             </div>
-            <div className="bottomsection">
+            <div className={(create)?"hideee":"bottomsection"}>
                 <Cardsdisplay/>
+            </div>
+            <div className={(!create)?"hideee":"bottomsection"}>
+                <Templatechoice hide={[create,setCreate]}/>
+            </div>
+            <div className={(create)?"hideee":"foot"}>
+                <button onClick={()=>setCreate(true)} className="createbtn">Create New Folder</button>
             </div>
         </div>
     )

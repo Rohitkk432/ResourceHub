@@ -69,8 +69,32 @@
 
 .bottomsection {
     /* position: absolute; */
-    min-height: 63vh;
+    min-height: 51vh;
     width: 100vw;
     padding-bottom: 2vh;
     background: #e8f1ff;
+}
+.foot {
+    height: 10vh;
+    width: 100vw;
+    padding-bottom: 2vh;
+    background: #e8f1ff;
+    position: absolute;
+}
+.createbtn {
+    position: relative;
+    left: 82vw;
+    bottom: 0rem;
+    border-radius: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 30px;
+    background: #23a6f0;
+    color: white;
+    border-color: #23a6f0;
+    margin: 6px;
+}
+
+.hideee {
+    display: none;
 }
