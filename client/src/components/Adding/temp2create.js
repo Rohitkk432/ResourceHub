@@ -1,17 +1,10 @@
-import {React,useEffect,useState,useCallback} from 'react';
-import './datatype.css';
-import {getcarditems} from '../utils/functions';
+import {React,useState,useEffect} from 'react';
+import './tempcreate.css';
 
-function Datatype2(params) {
+function Temp2create() {
 
     const [items,setItems]=useState([]);
-    const title=params.data;
-
-    const fetchingitems = useCallback(async()=>{
-        const _items = await getcarditems(params.dataid);
-        setItems(_items);
-    },[params.dataid])
-
+    
     function dummy(){
         const _items=[
             {   
@@ -31,13 +24,8 @@ function Datatype2(params) {
     }
 
     useEffect(()=>{
-        if(params.dataid){
-            fetchingitems();
-        }
-        else{
-            dummy();
-        }
-    },[params.dataid,fetchingitems])
+        dummy();
+    },[])
 
     function Carditem(params){
         return(
@@ -53,7 +41,7 @@ function Datatype2(params) {
 
     return (
         <div id="card2" className="datatype2">
-            <div className="cardtitle2">{title}</div>
+            <div className="cardtitle2">{'okkkkk'}</div>
 
             {   
                 items?.map((_data,idx)=>{
@@ -67,11 +55,11 @@ function Datatype2(params) {
             }
 
             <div className="buttons2">
-                <button className="expandbtn">Expand</button>
-                <button className="editbtn">Edit</button>
+                <button className="btn1">Expand</button>
+                <button className="btn2">Edit</button>
             </div>
         </div>
     )
 }
 
-export default Datatype2;
+export default Temp2create;

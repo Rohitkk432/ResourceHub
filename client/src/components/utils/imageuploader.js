@@ -1,28 +1,41 @@
-import {React,useState} from 'react';
+import {React,useState,useEffect,useCallback} from 'react';
 import './imageuploader.css';
 import axios from 'axios';
 
-function Imageuploader() {
+//material UI icons
+import BackupOutlinedIcon from '@material-ui/icons/BackupOutlined';
+
+function Imageuploader(params) {
+
+    const [upload,setUpload]=params.upload;
+    const [imglink,setImglink]=params.imglink;
 
     const [img,setImg]=useState({});
-    const [label,setLabel]=useState("Upload Image");
+    const [label,setLabel]=useState("white");
     const [input,setInput]=useState(false);
 
-    const uploading=()=>{
+    const uploading= useCallback(()=>{
         const formData = new FormData();
         formData.append('file',img);
         formData.append('upload_preset', 'tr1angcf');
 
         axios.post('https://api.cloudinary.com/v1_1/rohitkk432/image/upload', formData)
-        .then((res)=>console.log(res.data.secure_url)).catch((err)=>console.log(err))
-    }
+        .then((res)=>setImglink(res.data.secure_url)).catch((err)=>console.log(err))
+    },[img,setImglink])
+
+    useEffect(()=>{
+        if(upload && img){
+            uploading();
+            setUpload(false);
+        };
+    },[upload,img,uploading,setUpload])
 
     const fileprocess =(e)=>{
         if(e.target.files[0].name.includes('.png') || 
         e.target.files[0].name.includes('.jpeg') || 
         e.target.files[0].name.includes('.jpg')){
             setImg(e.target.files[0]);
-            setLabel("Uploaded");
+            setLabel("green");
             setInput(true);
         }
     }
@@ -30,14 +43,7 @@ function Imageuploader() {
     return (
         <div>
             <input type="file" id="upload" disabled={input} onChange={fileprocess}  hidden/>
-            <label className="fileinput" htmlFor="upload">{label}</label>
-
-            <button onClick={(e)=>{
-                e.preventDefault();
-                uploading();
-            }}>
-                UPLOAD
-            </button>
+            <label style={{'color':`${label}`}} className="fileinput" htmlFor="upload"><BackupOutlinedIcon style={{'fontSize':'3rem'}} /></label>
         </div>
     )
 }
