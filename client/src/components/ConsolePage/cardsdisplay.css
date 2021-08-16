@@ -1,0 +1,17 @@
+.cardsdisplay {
+    /* padding: 2rem 2rem;
+  display: grid;
+  grid-template-columns: 4fr 3fr;
+  grid-template-rows: 1fr 1fr;
+ */
+    padding: 2rem 2rem;
+    display: grid;
+    grid-template-columns: 4fr 3fr;
+    grid-template-rows: 1fr 1fr;
+    /* grid-gap: 5rem 5rem; */
+    /* gap: 5rem 5rem; */
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    
+}
