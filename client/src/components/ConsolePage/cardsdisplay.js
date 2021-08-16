@@ -1,52 +1,50 @@
-import {React,useEffect,useState} from 'react';
-import {currentuser} from '../LoginPage/loginpage'
-import {getusercards} from '../utils/functions';
+import { React, useEffect, useState } from "react";
+import { currentuser } from "../LoginPage/loginpage";
+import { getusercards } from "../utils/functions";
 
-import Datatype1 from './datatype1';
-import Datatype2 from './datatype2';
+import Datatype1 from "./datatype1";
+import Datatype2 from "./datatype2";
+import './cardsdisplay.css';
 
 function Cardsdisplay() {
+  const [cards, setCards] = useState([]);
 
-    const [cards,setCards]=useState([]);
+  async function fetchingcards() {
+    const _cards = await getusercards(currentuser._id);
+    setCards(_cards);
+  }
 
-    async function fetchingcards(){
-        const _cards = await getusercards(currentuser._id);
-        setCards(_cards);
+  useEffect(() => {
+    if (currentuser) {
+      fetchingcards();
     }
+  }, []);
 
-    useEffect(()=>{
-        if(currentuser){
-            fetchingcards();
+  return (
+    <div className="cardsdisplay">
+      {cards?.map((_data, idx) => {
+        if (_data.cardtemplate === "1") {
+          return (
+            <div key={idx}>
+              <Datatype1 data={_data.title} dataid={_data._id} />
+            </div>
+          );
+        } else if (_data.cardtemplate === "2") {
+          return (
+            <div key={idx}>
+              <Datatype2 data={_data.title} dataid={_data._id} />
+            </div>
+          );
+        } else {
+          return <div key={idx}></div>;
         }
-    },[])
-
-    return (
-        <div className='cardsdisplay' >
-            {   
-                cards?.map((_data,idx)=>{
-                    if(_data.cardtemplate==='1'){
-                        return(
-                            <div key={idx}>
-                                <Datatype1 data={_data.title} dataid={_data._id}/>
-                            </div>
-                        )
-                    }
-                    else if(_data.cardtemplate==='2'){
-                        return(
-                            <div key={idx}>
-                                <Datatype2 data={_data.title} dataid={_data._id}/>
-                            </div>
-                        )
-                    }
-                    else{
-                        return(
-                            <div key={idx}></div>
-                        )
-                    }
-                })
-            }
-        </div>
-    )
+      })}
+      <Datatype1 data="hello" dataid={false} />
+      <Datatype2 data="hello2" dataid={false} />
+      <Datatype2 data="hello2" dataid={false} />
+      <Datatype1 data="hello" dataid={false} />
+    </div>
+  );
 }
 
 export default Cardsdisplay;
