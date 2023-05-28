@@ -2,6 +2,7 @@
 
 # ResourceHub
 DevFest 2.0 Hackathon
+Testing PRs testing
 
 ## About
 One-Stop SOLUTION to your RESOURCE needs. Curating the best resources from the best people around the world, all in one place.
