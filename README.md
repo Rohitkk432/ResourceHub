@@ -1,5 +1,3 @@
-<img width="100" alt="app-logo" src="https://res.cloudinary.com/rohitkk432/image/upload/v1629118667/none_hmnheq.png">
-
 # ResourceHub
 DevFest 2.0 Hackathon
 Testing PRs testing
